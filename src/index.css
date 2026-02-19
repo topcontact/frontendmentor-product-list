@@ -1,0 +1,23 @@
+/* Basic reset and font setup - will be expanded later */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  background-color: #fcf8f6; /* Rose 50 from design */
+}
+
+#root {
+  width: 100%;
+}
+
+.attribution { 
+    font-size: 11px; text-align: center; 
+    margin-top: 2rem;
+}
+.attribution a { color: hsl(228, 45%, 44%); }
