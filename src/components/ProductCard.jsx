@@ -9,12 +9,12 @@ export default function ProductCard({ item, addToCart, quantity, removeFromCart 
 
                         <button className="btn-active">
                             <span className="icon-minus" onClick={() => removeFromCart(item.name)}>-</span>
-                            <span classname="quntity-text">{quantity}</span>
+                            <span className="quantity-text">{quantity}</span>
                             <span className="icon-plus" onClick={() => addToCart(item)}>+</span>
                         </button>
                     ) :
                         <button className="btn-add" onClick={() => addToCart(item)}>
-                            <span className="icon-plus"></span>
+                            <img src="/assets/images/icon-add-to-cart.svg" alt="Add to cart" />
                             Add to Cart
                         </button>
                     }

@@ -9,6 +9,8 @@ import OrderConfirmationModal from './components/OrderConfirmationModal'
 function App() {
     console.log(data)
     const [cartItems, setCartItems] = useState([])
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
     const addtoCart = (product) => {
         const exsitingItem = cartItems.find((item) => item.name === product.name);
         if (exsitingItem) {
@@ -41,6 +43,16 @@ function App() {
             );
         });
     };
+
+    const confirmOrder = () => {
+        setIsModalOpen(true);
+    }
+
+    const startNewOrder = () => {
+        setCartItems([]);
+        setIsModalOpen(false);
+    }
+
     return (
         <>
             {/* กล่องใหญ่สุด คลุมทั้งซ้ายและขวา */}
@@ -69,10 +81,15 @@ function App() {
 
                 {/* ------ ก้อนฝั่งขวา (ตะกร้า) ------ */}
                 <div className="cart-section">
-                    <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
+                    <Cart cartItems={cartItems} removeFromCart={removeFromCart} onConfirmOrder={confirmOrder} />
                 </div>
 
-                <OrderConfirmationModal />
+                {isModalOpen && (
+                    <OrderConfirmationModal
+                        cartItems={cartItems}
+                        onStartNewOrder={startNewOrder}
+                    />
+                )}
             </main>
         </>
     )
