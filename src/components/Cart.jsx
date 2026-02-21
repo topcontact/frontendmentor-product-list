@@ -13,19 +13,24 @@ export default function Cart({ cartItems, removeFromCart }) {
                         <div key={item.name}>
                             <p className="name">{item.name}</p>
                             <span className="quantity">{item.quantity}x</span>
-                            <span className="price">${item.price}</span>
+                            <span className="price"> @ ${item.price}</span>
                             <span className="total-price">${item.price * item.quantity}</span>
                             <button className="btn-remove" onClick={() => removeFromCart(item.name)}>-</button>
+                            <div>
+                                <span>Order Total</span>
+                                <span>${totalPrice}</span>
+                            </div>
+                            <div>
+                                <img src="../assets/images/icon-carbon-neutral.svg" alt="eco-icon" />
+                                <span>This is a catbon-neutral delivery</span>
+                            </div>
+                            <button className="btn-confirm">Confirm Order</button>
                         </div>
 
                     ))
                 )}
-                <div>
-                    <span>Order Total</span>
-                    <span>${totalPrice}</span>
-                </div>
-                <button>Confirm Order</button>
             </div>
+
         </>
     )
 }
