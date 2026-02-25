@@ -27,15 +27,15 @@ function App() {
     }
     const removeFromCart = (productName) => {
         setCartItems((prevCartItems) => {
-            // หาของในตะกร้าก่อน
+            // Find the item in the cart first
             const existingItem = prevCartItems.find(item => item.name === productName);
 
-            // กรณีที่เหลือแค่ 1 ชิ้น แล้วโดนกดลบอีก -> ต้องใช้ .filter เพื่อเตะมันออกจาก Array
+            // If there's only 1 left and the user clicks '-', use .filter to remove it from the array entirely
             if (existingItem.quantity === 1) {
                 return prevCartItems.filter(item => item.name !== productName);
             }
 
-            // กรณีที่ยังมีมากกว่า 1 ชิ้น -> ใช้ .map เหมือนตอนบวก แต่แค่เปลี่ยนเป็นลบ (- 1)
+            // If there's more than 1 left, use .map to decrement the quantity (- 1)
             return prevCartItems.map(item =>
                 item.name === productName
                     ? { ...item, quantity: item.quantity - 1 }
@@ -55,10 +55,10 @@ function App() {
 
     return (
         <>
-            {/* กล่องใหญ่สุด คลุมทั้งซ้ายและขวา */}
+            {/* Main wrapper containing both left and right sections */}
             <main className="app-container">
 
-                {/* ------ ก้อนฝั่งซ้าย (สินค้า) ------ */}
+                {/* ------ Left Section (Product List) ------ */}
                 <div className="product-section">
                     <h1>Desserts</h1>
                     <ProductList>
@@ -79,7 +79,7 @@ function App() {
                     </ProductList>
                 </div>
 
-                {/* ------ ก้อนฝั่งขวา (ตะกร้า) ------ */}
+                {/* ------ Right Section (Cart) ------ */}
                 <div className="cart-section">
                     <Cart cartItems={cartItems} removeFromCart={removeFromCart} onConfirmOrder={confirmOrder} />
                 </div>

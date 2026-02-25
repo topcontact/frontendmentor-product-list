@@ -41,30 +41,24 @@ body {
   color: hsl(228, 45%, 44%);
 }
 
-/* จัดการกล่องใหญ่ ให้กางออกเป็น 2 คอลัมน์ */
+/* Main layout constraints */
 .app-container {
   max-width: 1200px;
-  /* จำกัดความกว้างไม่ให้ยืดเต็มจอเกินไป */
   margin: 0 auto;
-  /* จัดให้อยู่กึ่งกลางจอ */
   padding: 2rem;
 
-  /* ตรงนี้คือพระเอก! เราใช้ CSS Grid แบ่งสัดส่วน */
+  /* CSS Grid implementation for responsive structure */
   display: grid;
-  grid-template-columns: 1fr;
-  /* ค่าเริ่มต้นในมือถือ: เป็นแถวเดียวซ้อนกัน */
   gap: 2rem;
-  /* ระยะห่างระหว่างฝั่งซ้ายกับขวา */
+  /* Default mobile layout: single stacked column */
+  grid-template-columns: 1fr;
 }
 
-/* 
-  เมื่อหน้าจอคอมพิวเตอร์ (กว้างตั้งแต่ 1024px ขึ้นไป) 
-  เราจะสลับร่างให้มันกลายเป็น 2 คอลัมน์ (ซ้าย 2 ส่วน, ขวา 1 ส่วน)
-*/
 @media (min-width: 1024px) {
+  /* Desktop layout: Switch to a 2-column grid (Left: 2 parts, Right: 1 part) */
   .app-container {
-    /* fr ย่อมาจาก fraction (สัดส่วน)
-           2fr 1fr แปลว่า ฝั่งซ้ายกินพื้นที่ 2 ส่วน, ฝั่งขวากิน 1 ส่วน (รวมเป็น 3 ส่วน) */
+    /* fr stands for fraction.
+           2fr 1fr means the left side takes 2 parts, the right side takes 1 part (total 3 parts) */
     grid-template-columns: 2fr 1fr;
     align-items: start;
   }
