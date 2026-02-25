@@ -80,9 +80,9 @@ function App() {
                 </div>
 
                 {/* ------ Right Section (Cart) ------ */}
-                <div className="cart-section">
+                <aside className="cart-section">
                     <Cart cartItems={cartItems} removeFromCart={removeFromCart} onConfirmOrder={confirmOrder} />
-                </div>
+                </aside>
 
                 {isModalOpen && (
                     <OrderConfirmationModal

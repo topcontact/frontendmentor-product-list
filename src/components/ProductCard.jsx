@@ -1,7 +1,7 @@
 export default function ProductCard({ item, addToCart, quantity, removeFromCart }) {
     return (
         <>
-            <div className="product-card">
+            <li className="product-card">
                 {/* Image */}
                 <div className="image-container">
                     <img src={item.image.desktop} alt={item.name} />
@@ -14,7 +14,7 @@ export default function ProductCard({ item, addToCart, quantity, removeFromCart 
                         </button>
                     ) :
                         <button className="btn-add" onClick={() => addToCart(item)}>
-                            <img src="/assets/images/icon-add-to-cart.svg" alt="Add to cart" />
+                            <img src="/assets/images/icon-add-to-cart.svg" alt="" aria-hidden="true" />
                             Add to Cart
                         </button>
                     }
@@ -22,11 +22,11 @@ export default function ProductCard({ item, addToCart, quantity, removeFromCart 
 
                 {/* Info */}
                 <div className="product-info">
-                    <p className="category">{item.category}</p>
+                    <span className="category">{item.category}</span>
                     <h2 className="name">{item.name}</h2>
-                    <p className="price">${item.price.toFixed(2)}</p>
+                    <span className="price">${item.price.toFixed(2)}</span>
                 </div>
-            </div>
+            </li>
         </>
     )
 }

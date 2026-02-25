@@ -55,6 +55,7 @@ body {
 }
 
 @media (min-width: 1024px) {
+
   /* Desktop layout: Switch to a 2-column grid (Left: 2 parts, Right: 1 part) */
   .app-container {
     /* fr stands for fraction.
@@ -75,6 +76,9 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 @media (min-width: 768px) {
