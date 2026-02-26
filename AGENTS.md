@@ -6,6 +6,8 @@ For any future frontend projects, keep these rules in mind based on lessons lear
 1.  **Data Flow First**: Always establish the core data flow and state management logic (e.g., placing items in a cart, counting quantities) before adding any stylistic CSS. Prove the logic works with raw HTML tags first.
 2.  **Vite Asset Strategy**: Be aware of Vite's distinction between `/src` (processed module paths) and `/public` (static root paths).
 3.  **Strict React Keys**: Always provide a unique `key` attribute when mapping arrays to prevent reconciliation bugs.
+4.  **JSX Syntax Strictness**: Never use the `class` attribute in JSX files; always use `className` as `class` is a reserved JavaScript keyword.
+5.  **External Link Security**: Always add `rel="noopener noreferrer"` to any anchor tag `<a>` that uses `target="_blank"` to prevent tabnabbing security vulnerabilities.
 
 ## CSS Best Practices (Performance & Scalability)
 1.  **Semantic Containers**: Avoid "div soup". Use semantic tags like `<main>`, `<section>`, `<aside>`, `<ul>`, and `<li>` to ensure layout has meaning.
